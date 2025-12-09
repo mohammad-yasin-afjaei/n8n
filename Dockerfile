@@ -1,14 +1,8 @@
-FROM node:18
+FROM docker.n8n.io/n8nio/n8n:1.42.0
 
-# Install n8n globally
-RUN npm install -g n8n
-
-# Create n8n home directory
-RUN mkdir -p /home/node/.n8n
-ENV N8N_USER_FOLDER=/home/node/.n8n
-
-# Expose port
 ENV N8N_PORT=5678
+ENV N8N_HOST=0.0.0.0
+
 EXPOSE 5678
 
 CMD ["n8n"]
